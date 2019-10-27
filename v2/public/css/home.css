@@ -1,0 +1,46 @@
+/* google font  */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+
+body {
+    background: #FBF8F4;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+iframe{
+    width: 100vw;
+    height: 40vh;
+}
+
+#nav-logo{
+    width: 2vw;
+}
+
+.card{
+    height: 100%;
+    background: whitesmoke;
+    border: 0px;
+}
+
+.header-picture{
+    width: 50vw;
+}
+
+.announcement-picture{
+    width: 100%;
+}
+
+.mySlides {
+    width: 100%;
+    display:none;
+}
+
+.project-list{
+    background: whitesmoke;
+    border-radius: 1%;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.project-icon{
+    width: 5vw;
+}
