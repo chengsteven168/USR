@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="./public/css/topButton.css">
     <!-- JS -->
     <!-- <script src="./public/js/slide.js"></script>   -->
-    <!-- <script src="./public/js/topButton.js"></script> -->
+    <script src="./public/js/topButton.js"></script>
 </head>
 <body>
     <!-- goTop  -->
-    <button type="button" id="BackTop" class="toTop-arrow"></button>
+    <!-- <button type="button" id="BackTop" class="toTop-arrow"></button> -->
+    <button onclick="topFunction()" id="goTopBtn" title="Go to top">Top</button>
 
     <!-- header demo -->
     <div class="container text-center mt-2">
@@ -270,27 +271,13 @@
 <script>
     let slideIndex = 1;
     
-    $(window).on('load', function() {
-        // include header
-        // $("#header").load("./templete/header.html"); 
-
-        // go top button
-        $('#BackTop').click(function(){ 
-            $('html,body').animate({scrollTop:0}, 333);
-        });
-
-        $(window).scroll(function() {
-            if ( $(this).scrollTop() > 300 ){
-                $('#BackTop').fadeIn(200);
-            } else {
-                $('#BackTop').stop().fadeOut(200);
-            }
-        }).scroll();
-
+    window.onload = function(){
+        //Get the button:
+        mybutton = document.getElementById("goTopBtn");
         // slide
         showDivs(slideIndex);
-    });  
-
+    }
+        
     function plusDivs(n) {
         showDivs(slideIndex += n);
     }
