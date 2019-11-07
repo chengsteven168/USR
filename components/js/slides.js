@@ -1,18 +1,16 @@
+const slidesTimer = 1500;
 let slideIndex = 1;
-$(window).on('load', function() { 
+
+window.onload = function(){
     showDivs(slideIndex);
     autoChangeDivs();
-});  
-
-function plusDivs(n) {
-    showDivs(slideIndex += n);
 }
-
+ 
 function autoChangeDivs(){
     setTimeout(()=>{
         showDivs(slideIndex++);
         autoChangeDivs();
-    }, 1500)
+    }, slidesTimer);
 }
 
 function showDivs(n) {
