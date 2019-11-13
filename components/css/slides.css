@@ -2,3 +2,27 @@
     max-height: 70vh;
     display:none;
 }
+
+.slidesBtn{
+    border-color: #6c757d00;
+}
+
+.lastSlideBtn{
+    position: absolute; 
+    float: left;
+    left:2%; 
+    top: 50%;
+}
+
+.nextSlideBtn{
+    position: absolute; 
+    float: right;
+    right:2%; 
+    top: 50%;
+}
+
+.selectSlideBtnGroup{
+    position: absolute; 
+    display: inline-block; 
+    bottom: 0%;
+}
