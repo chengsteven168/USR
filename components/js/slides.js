@@ -1,4 +1,4 @@
-const slidesTimer = 1500;
+const slidesTimer = 2000;
 let slideIndex = 1;
 
 window.onload = function(){
@@ -7,13 +7,32 @@ window.onload = function(){
 }
  
 function autoChangeDivs(){
-    setTimeout(()=>{
+    t=setTimeout(()=>{
+        showDivs(slideIndex++);
+        autoChangeDivs();
+    }, slidesTimer);
+}
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+    resetTimeout();
+}
+
+function selectDiv(n){
+    showDivs(slideIndex=n);
+    resetTimeout();
+}
+
+function resetTimeout(){
+    clearTimeout(t);
+    t=setTimeout(()=>{
         showDivs(slideIndex++);
         autoChangeDivs();
     }, slidesTimer);
 }
 
 function showDivs(n) {
+    console.log(slideIndex);
     const x = document.getElementsByClassName("mySlides");
     if (n >= x.length) {slideIndex = 1}
     if (n < 1) {slideIndex = x.length} ;
