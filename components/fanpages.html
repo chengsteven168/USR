@@ -1,0 +1,89 @@
+<section id="Fanpage">
+    <div class="row">
+        <div class="col-12" style="position: relative;">
+            <a href="https://osausr.ntut.edu.tw/p/406-1001-96579,r11.php?Lang=zh-tw" target="_blank">
+                <img class="myFanpage" src="https://images.unsplash.com/photo-1557759677-209e5b9103c5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80" /> 
+            </a> 
+            <a href="https://osausr.ntut.edu.tw/p/406-1001-96579,r11.php?Lang=zh-tw" target="_blank"> 
+                <img class="myFanpage" src="https://images.unsplash.com/photo-1562448079-b5631888445f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80" /> 
+            </a> 
+            <a href="https://osausr.ntut.edu.tw/p/406-1001-96579,r11.php?Lang=zh-tw" target="_blank"> 
+                <img class="myFanpage" src="https://images.unsplash.com/photo-1562755918-d4fa85ac239f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80" /> 
+            </a>
+            <button class="lastFanpageBtn fanpageBtn btn btn-outline-light" onclick="plusFanpage(-1)">&lt;</button>
+            <button class="nextFanpageBtn fanpageBtn btn btn-outline-light" onclick="plusFanpage(1)">&gt;</button>
+        </div>
+    </div>
+</section>
+    
+<script> 
+    const fanpageTimer = 2000;
+    let fanpageIndex = 1;
+    
+    showFanpage(fanpageIndex);
+    // autoChangeFanpage();
+    
+     
+    function autoChangeFanpage(){
+        fanpage_t=setTimeout(()=>{
+            showFanpage(fanpageIndex++);
+            autoChangeFanpage();
+        }, fanpageTimer);
+    }
+    
+    function plusFanpage(n) {
+        fanpageIndex += n;
+        if(fanpageIndex>document.getElementsByClassName("myFanpage").length){
+            fanpageIndex =1;
+        }else if(fanpageIndex<=0){
+            fanpageIndex = document.getElementsByClassName("myFanpage").length
+        }
+        showFanpage();
+        // resetFanpageTimeout();
+    }
+    
+    function resetFanpageTimeout(){
+         clearTimeout(fanpage_t);
+         fanpage_t=setTimeout(()=>{
+            showFanpage(fanpageIndex++);
+            autoChangeFanpage();
+        }, fanpageTimer);
+    }
+    
+    function showFanpage(n) {
+        const fanpages = document.getElementsByClassName("myFanpage");
+        if (n >= fanpages.length) {fanpageIndex = 1}
+        if (n < 1) {fanpageIndex = fanpages.length} ;
+        for (let i = 0; i < fanpages.length; i++) {
+            fanpages[i].style.display = "none";
+        }
+        fanpages[fanpageIndex-1].style.display = "block";
+    }
+</script>
+    
+<style type="text/css">
+    .myFanpage {
+        border-radius: 1%;
+        height: 100%;
+        width:100% ;
+        display:none;
+    }
+    
+    .fanpageBtn{
+        border-color: #6c757d00;
+    }
+    
+    .lastFanpageBtn{
+        position: absolute; 
+        float: left;
+        left:2%; 
+        top: 50%;
+    }
+    
+    .nextFanpageBtn{
+        position: absolute; 
+        float: right;
+        right:2%; 
+        top: 50%;
+    }
+</style>
